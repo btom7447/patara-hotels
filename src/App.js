@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './Styles/index.css';
+import './Styles/mobile.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Home from './Pages/Home';
+import About from './Pages/About';
+import Rooms from './Pages/Rooms';
+import Services from './Pages/Services';
+import Contact from './Pages/Contact';
+import Cart from './Pages/Cart';
+import Booking from './Pages/Booking';
+import Footer from './Components/Footer';
+import { roomsData } from './Components/RoomsData';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Navbar />
+      <Routes>  
+        <Route path="/" element={<Home />} />  
+        <Route path="/about" element={<About />} /> 
+        <Route path="/rooms" element={<Rooms />} /> 
+        <Route path="/services" element={<Services />} />         
+        <Route path="/contact" element={<Contact />} /> 
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/book" element={<Booking />} />
+      </Routes>
+      <Footer roomsData={roomsData} />
+    </Router>
+  )
 }
 
 export default App;
