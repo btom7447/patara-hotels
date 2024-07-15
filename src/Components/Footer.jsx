@@ -7,7 +7,7 @@ const Footer = ({ roomsData }) => {
     const navigate = useNavigate();
 
     const handleRoomClick = (room) => {
-        navigate('/book', { state: { room } });
+        navigate('/booking', { state: { room } });
     };
 
     return (

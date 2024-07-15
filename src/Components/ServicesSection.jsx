@@ -1,6 +1,6 @@
 import React from "react";
-import AmenitiesCarousel from "./AmenitiesCarousel";
-import { amenitiesData } from "./amenitiesData";
+import ServicesDisplay from "./ServicesDisplay";
+import { servicesData } from "./servicesData";
 
 const ServicesSection = () => {
     return (
@@ -8,16 +8,18 @@ const ServicesSection = () => {
             <div className="services-section-top">
                 <div className="section-caption">
                     <span className="bullet"></span>
-                    <h5>Featured</h5>
+                    <h5>Discover</h5>
                 </div>
                 <div className="discover-section-text">
-                    <h2>Hotel Amenities</h2>
+                    <h2>Our Servics</h2>
                     <p>
-                        Welcome to our hotel, where our dedicated team provides 24/7 support and a range of services for a comfortable and convenient stay. Enjoy complimentary Wi-Fi, laundry and dry cleaning services, a fitness center, and concierge assistance with transportation, tours, and restaurant reservations. Whether traveling for business or leisure, our hotel offers a business center, meeting rooms, room service, a complimentary breakfast buffet, and a relaxing spa and wellness center to ensure a successful and rejuvenating stay.
+                        Indulge in the epitome of luxury and sophistication at Patara Hotels, where our extensive range of high-end services is designed to surpass your every expectation. From exquisite culinary experiences to rejuvenating wellness and fitness programs, we cater to your every need. Unwind in style with exclusive cultural and entertainment options, or conduct business with ease in our state-of-the-art facilities. Whether you're seeking relaxation, inspiration, or productivity, our exceptional services will envelop you in comfort and refinement, ensuring an unforgettable stay with us.
                     </p>
                 </div>
             </div>
-            <AmenitiesCarousel amenitiesData={amenitiesData} />
+            <ServicesDisplay servicesData={servicesData} />
+
+
         </div>
     )
 };

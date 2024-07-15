@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import CustomSelect from './CustomSelect';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from './CartProvider';
 
 const BookingForm = ({ price }) => {
+  const { setCartItems } = useContext(CartContext);
   const today = new Date();
   const [checkInDate, setCheckInDate] = useState(today);
   const [checkOutDate, setCheckOutDate] = useState(null);
@@ -14,28 +16,23 @@ const BookingForm = ({ price }) => {
   const [checkingDays, setCheckingDays] = useState(1);
   const [totalPrice, setTotalPrice] = useState(price);
 
-  useEffect(() => {
-    setTotalPrice(price * checkingDays);
-  }, [price, checkingDays]);
-
-  useEffect(() => {
-    if (checkInDate && checkOutDate) {
-      const diffTime = Math.abs(new Date(checkOutDate) - new Date(checkInDate));
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Correct calculation
-      setCheckingDays(diffDays);
-    }
-  }, [checkInDate, checkOutDate]);
-
+  // Calculate checkOutDate based on checkInDate and checkingDays
   useEffect(() => {
     if (checkInDate && checkingDays) {
       const newCheckOutDate = new Date(checkInDate);
       newCheckOutDate.setDate(newCheckOutDate.getDate() + checkingDays);
       setCheckOutDate(newCheckOutDate);
     }
-  }, [checkingDays]);
+  }, [checkInDate, checkingDays]);
+
+  // Update total price when price or checkingDays change
+  useEffect(() => {
+    setTotalPrice(price * checkingDays);
+  }, [price, checkingDays]);
 
   const handleCheckingDaysChange = (e) => {
-    setCheckingDays(parseInt(e.target.value, 10));
+    const days = parseInt(e.target.value, 10);
+    setCheckingDays(days > 0 ? days : 1); // Ensure positive value, default to 1 if invalid
   };
 
   const handleSubmit = (e) => {
@@ -50,6 +47,7 @@ const BookingForm = ({ price }) => {
 
     // Save bookingDetails to a variable or send to the backend
     console.log("Booking Details:", bookingDetails);
+    setCartItems((prev) => prev + 1); // Update cart items count
   };
 
   const handleClearSelection = () => {
@@ -72,7 +70,7 @@ const BookingForm = ({ price }) => {
 
       <label htmlFor="childrenGuest">Children: {childrenGuest}</label>
       <CustomSelect
-        options={["1 Child", "2 Children", "3 Children", "4 Children"]}
+        options={["None", "1 Child", "2 Children", "3 Children", "4 Children"]}
         value={childrenGuest}
         onChange={setChildrenGuest}
         placeholder="Children"
@@ -87,7 +85,7 @@ const BookingForm = ({ price }) => {
           data-enable-time
           className="custom-date-input"
           value={checkInDate}
-          onChange={(date) => setCheckInDate(date)}
+          onChange={(date) => setCheckInDate(date[0])} // Flatpickr returns an array of dates
           options={{ dateFormat: 'Y-m-d' }}
           placeholder="Check-In Date"
         />
@@ -99,7 +97,7 @@ const BookingForm = ({ price }) => {
           data-enable-time
           className="custom-date-input"
           value={checkOutDate}
-          onChange={(date) => setCheckOutDate(date)}
+          onChange={(date) => setCheckOutDate(date[0])} // Flatpickr returns an array of dates
           options={{ dateFormat: 'Y-m-d' }}
           placeholder="Check-Out Date"
         />

@@ -117,7 +117,7 @@
         right: 1rem; 
     }
     .hero-carousel .hero-carousel-caption {
-        width: 80%;
+        width: 70%;
         gap: 10px;
     }
     .hero-carousel .hero-carousel-caption svg {
@@ -345,12 +345,12 @@
     }
 
     /* SERVICES SECTION */
-    .services-section {
+    .amenities-section {
         width: 100%;
         height: fit-content;
         background-color: var(--primary-dark);
     }
-    .services-section .services-section-top {
+    .amenities-section .amenities-section-top {
         padding: 20px;
         flex-direction: column;
     }
@@ -361,6 +361,44 @@
         height: fit-content;
         padding: 20px;
         margin-bottom: 80px;
+    }
+
+    /* TESTIMONIAL SECTION */
+    .testimonial-section {
+        padding: 30px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+    }
+    .testimonial-carousel {
+        max-width: 100%;
+    }
+    .testimonial-carousel h1 {
+        font-size: 30px;
+    }
+    .testimonial-carousel .testimonial-slide .patron-details h5 {
+        font-size: 30px;
+    }
+
+    /* SERVICES SECTION */
+    .services-section .services-section-top {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .services-section .services-display-grid {
+        width: 100%;
+        height: fit-content;
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .services-section .service-item {
+        max-height: 30rem;
     }
 
     /* BOOKING DETAILS */

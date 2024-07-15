@@ -162,14 +162,14 @@ a {
   font-size: 22px;
 }
 .nav-links .cart-badge {
-  padding: 5px 8px;
+  padding: 5px 9px;
   border-radius: 100%;
   font-size: 10px;
   color: var(--white);
   background-color: var(--secondary-gold);
   position: absolute;
   top: 5px;
-  right: 10px;
+  right: 9px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -278,6 +278,34 @@ a {
   left: 50%;
   transform: translateX(-50%);
   animation: scroll-wheel 1.5s infinite;
+}
+
+/* SECTION CAPTION */
+.section-caption {
+  width: 20%;
+  padding: 20px 0px;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: solid 1px var(--secondary-gold);
+}
+.section-caption .bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: var(--secondary-gold);
+}
+.section-caption h5 {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 1.5em;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--black);
 }
 
 /* FOOTER */
@@ -502,7 +530,7 @@ footer .footer-bottom span {
 .hero-carousel .hero-carousel-caption svg {
   -webkit-animation-delay: .3s;
   animation-delay: .3s;
-  color: var(--primary-gold);
+  color: var(--secondary-gold);
   font-size: 18px;
   margin-right: 10px;
 }
@@ -582,6 +610,7 @@ footer .footer-bottom span {
   left: 50%;
   transform: translateX(-50%);
 }
+
 /* CUSTOM SELECT */
 .checking-container .custom-select {
   position: relative;
@@ -654,6 +683,9 @@ footer .footer-bottom span {
 .checking-container .custom-date-input::placeholder {
   color: var(--white) !important;
 }
+.checking-container .custom-date-input:placeholder-shown {
+  color: var(--white) !important;
+}
 .checking-container button {
   min-width: 150px;
   min-height: 80px;
@@ -670,34 +702,6 @@ footer .footer-bottom span {
   color: var(--white);
   background-color: var(--secondary-gold);
   border: solid 1px var(--secondary-gold);
-}
-
-/* SECTION CAPTION */
-.section-caption {
-  width: 20%;
-  padding: 20px 0px;
-  display: flex;
-  gap: 20px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  border-bottom: solid 1px var(--secondary-gold);
-}
-.section-caption .bullet {
-  width: 5px;
-  height: 5px;
-  border-radius: 100%;
-  background-color: var(--secondary-gold);
-}
-.section-caption h5 {
-  font-family: 'Outfit', sans-serif;
-  text-transform: uppercase;
-  font-weight: 300;
-  line-height: 1.5em;
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: var(--black);
 }
 
 /* WELCOME SECTION */
@@ -772,7 +776,7 @@ footer .footer-bottom span {
   align-items: flex-start;
 }
 .welcome-section .welcome-text .welcome-ratings .welcome-rates svg {
-  color: var(--primary-gold);
+  color: var(--secondary-gold);
   margin-right: 5px;
   margin-top: 10px;
 }
@@ -1030,7 +1034,7 @@ footer .footer-bottom span {
   width: 100%;
   height: 70vh;
   overflow-y: auto; 
-  background: url(https://img.freepik.com/free-photo/3d-rendering-beautiful-luxury-bedroom-suite-hotel-with-tv_105762-2296.jpg?t=st=1720792216~exp=1720795816~hmac=73b6b633b16f66f85d84b7cff827bc92b9f8226d46023f781db89ab46c8d1a59&w=1380);
+  background: url(https://webredox.net/demo/wp/patara/wp-content/uploads/2023/10/1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1062,7 +1066,7 @@ footer .footer-bottom span {
   z-index: 2;
 }
 .promotional-video-section .promotional-video-caption svg {
-  color: var(--primary-gold);
+  color: var(--secondary-gold);
   font-size: 18px;
   margin-right: 10px;
 }
@@ -1187,13 +1191,13 @@ footer .footer-bottom span {
   line-height: 30px;
 }
 
-/* SERVICES SECTION */
-.services-section {
+/* AMENITIES SECTION */
+.amenities-section {
   width: 100%;
   height: fit-content;
   background-color: var(--primary-dark);
 }
-.services-section .services-section-top {
+.amenities-section .amenities-section-top {
   width: 100%;
   height: fit-content;
   padding: 100px 100px 20px 100px;
@@ -1204,7 +1208,7 @@ footer .footer-bottom span {
   align-items: flex-start;
   gap: 20px;
 }
-.services-section .services-section-top h2 {
+.amenities-section .amenities-section-top h2 {
   font-size: 45px;
   font-family: 'Libre Caslon Display', serif;
   font-weight: 400;
@@ -1213,7 +1217,7 @@ footer .footer-bottom span {
   line-height: 1.2em;
   color: var(--black);
 }
-.services-section .services-section-top p {
+.amenities-section .amenities-section-top p {
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
   font-weight: 300;
@@ -1233,7 +1237,7 @@ footer .footer-bottom span {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding: 20px;
   background-color: var(--white);
   transition: transform 0.3s ease-in-out;
@@ -1266,11 +1270,6 @@ footer .footer-bottom span {
   position: absolute;
   top: 0px;
   right: 0px;
-}
-.amenities-carousel .amenity-icon {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 1rem;
 }
 .amenities-carousel .amenity-slide h3 {
   font-size: 27px;
@@ -1311,7 +1310,224 @@ footer .footer-bottom span {
   background-color: var(--secondary-gold); 
 }
 
+/* TESTIMONIAL SECTION */
+.testimonial-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow-y: auto; 
+  background: url(https://webredox.net/demo/wp/patara/wp-content/uploads/2023/10/18.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding: 100px;
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 2;
+}
+.testimonial-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+}
+.testimonial-section .section-caption {
+  border-bottom: solid 1px var(--white);
+  z-index: 2;
+}
+.testimonial-section .section-caption .bullet {
+  background-color: var(--white);
+}
+.testimonial-section .section-caption h5 {
+  color: var(--white);
+}
+.testimonial-carousel {
+  max-width: 70rem;
+  height: fit-content;
+  background-color: transparent;
+  z-index: 2;
+}
+.testimonial-carousel h1 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  color: var(--white);
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+}
+.testimonial-carousel .testimonial-slide {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.testimonial-carousel .testimonial-slide p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--white);
+}
+.testimonial-carousel .testimonial-slide .star-rating {
+  color: var(--secondary-gold);
+  font-size: 15px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.testimonial-carousel .testimonial-slide .patrons {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+.testimonial-carousel .testimonial-slide .patrons img {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.testimonial-carousel .testimonial-slide .patron-details {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.testimonial-carousel .testimonial-slide .patron-details h5 {
+  font-size: 32px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  line-height: 1.2em;
+  color: var(--white);
+}
 
+/* SERVICES SECTION */
+.services-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.services-section .services-section-top {
+  width: 100%;
+  height: fit-content;
+  padding: 100px 100px 50px 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.services-section .services-section-top h2 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.services-section .services-section-top p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.services-section .services-display-grid {
+  width: 100%;
+  height: fit-content;
+  padding: 50px 100px 100px 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 30px;
+}
+.services-section .service-item {
+  max-height: 35rem;
+  position: relative;
+  overflow: hidden;
+}
+.services-section .service-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 1; 
+}
+.services-section .service-item h5 {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  font-size: 24px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  line-height: 1.2em;
+  color: var(--white);
+  z-index: 2;
+}
+.services-section .service-item .service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+.services-section .service-button {
+  z-index: 2;
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  font-size: 18px;
+  background-color: var(--secondary-gold);
+  color: var(--white);
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: background-color 0.3s ease, 
+  color 0.3s ease, bottom 0.3s ease, 
+  opacity 0.3s ease;
+}
+.services-section .service-button:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+.services-section .service-item:hover .service-button {
+  bottom: 50px;
+  opacity: 1;
+}
+.services-section .service-item:hover .service-image {
+  transform: scale(1.1);
+}
 
 /* BOOKING DETAILS */
 .booking-section {
@@ -1349,7 +1565,7 @@ footer .footer-bottom span {
   object-position: bottom center;
 }
 .booking-section .booking-details-left .star-ratings svg {
-  color: var(--primary-gold);
+  color: var(--secondary-gold);
   margin: 10px 2px;
 }
 .booking-section .booking-details .booking-details-left h2 {

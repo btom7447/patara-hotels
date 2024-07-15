@@ -5,7 +5,7 @@ import { faCheck, faChevronRight, faStar as faSolidStar } from '@fortawesome/fre
 import BreadCrumb from "../Components/BreadCrumb";
 import BookingForm from "../Components/BookingForm";
 
-const Booking = () => {
+const Booking = ({ setCartItems }) => {
   const location = useLocation();
   const room = location.state ? location.state.room : null;
 
@@ -66,7 +66,7 @@ const Booking = () => {
             <h2>${new Intl.NumberFormat('en-US').format(room.price)}</h2>
             <p>per night</p>
           </div>
-          <BookingForm price={room.price} />
+          <BookingForm price={room.price} setCartItems={setCartItems} />
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ const RoomsCarousel = ({ roomsData }) => {
   const navigate = useNavigate();
 
   const handleBooking = (room) => {
-    navigate('/book', { state: { room } });
+    navigate('/booking', { state: { room } });
   };
   
 
