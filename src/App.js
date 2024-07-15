@@ -1,6 +1,7 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify'; 
 import './Styles/index.css';
-import './Styles/mobile.css'
+import './Styles/mobile.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
@@ -19,16 +20,17 @@ import ArtCulture from './Pages/ArtCulture';
 import CinemaMedia from './Pages/CinemaMedia';
 import BusinessMeetings from './Pages/BusinessMeetings';
 import { CartProvider } from './Components/CartProvider';
-
+import Loader from './Components/Loader';
+import usePageLoader from './Components/usePageLoader';
 
 const App = () => {
   return (
     <CartProvider>
       <Router>
+        <LoaderWrapper />
         <Navbar />
         <Routes>  
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<Home />} />  
           <Route path="/about" element={<About />} /> 
           <Route path="/rooms" element={<Rooms />} /> 
           <Route path="/services" element={<Services />} />
@@ -44,8 +46,14 @@ const App = () => {
         </Routes>
         <Footer roomsData={roomsData} />
       </Router>
+      <ToastContainer position='top-right' autoClose={3000} />
     </CartProvider>
-  )
+  );
 }
+
+const LoaderWrapper = () => {
+  const loading = usePageLoader();
+  return loading ? <Loader /> : null;
+};
 
 export default App;

@@ -28,7 +28,6 @@ const AmenitiesCarousel = ({ amenitiesData }) => {
           <SplideSlide key={index}>
             <div className="amenity-slide">
               <div className="circle-number">{String(index + 1).padStart(2, '0')}</div>
-              <img src={amenity.icon} alt={amenity.name} className="amenity-icon" />
               <h3>{amenity.name}</h3>
               <p>{amenity.text}</p>
             </div>

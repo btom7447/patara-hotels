@@ -5,13 +5,14 @@ import 'flatpickr/dist/flatpickr.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from './CartProvider';
+import { toast } from 'react-toastify'; // Import Toastify
 
 const BookingForm = ({ price }) => {
   const { setCartItems } = useContext(CartContext);
   const today = new Date();
   const [checkInDate, setCheckInDate] = useState(today);
   const [checkOutDate, setCheckOutDate] = useState(null);
-  const [adultGuest, setAdultGuest] = useState('');
+  const [adultGuest, setAdultGuest] = useState('1 Adult'); // Initialize adultGuest to '1'
   const [childrenGuest, setChildrenGuest] = useState('');
   const [checkingDays, setCheckingDays] = useState(1);
   const [totalPrice, setTotalPrice] = useState(price);
@@ -37,6 +38,13 @@ const BookingForm = ({ price }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate childrenGuest selection
+    if (!childrenGuest) {
+      toast.error('Please select number of children.');
+      return;
+    }
+
     const bookingDetails = {
       checkInDate,
       checkOutDate,
@@ -53,7 +61,7 @@ const BookingForm = ({ price }) => {
   const handleClearSelection = () => {
     setCheckInDate(today);
     setCheckOutDate(null);
-    setAdultGuest('');
+    setAdultGuest('1'); // Reset adultGuest to '1'
     setChildrenGuest('');
     setCheckingDays(1);
   };

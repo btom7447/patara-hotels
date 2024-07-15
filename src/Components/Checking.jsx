@@ -5,29 +5,62 @@ import 'flatpickr/dist/flatpickr.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from './CartProvider';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Checking = ({ roomsData }) => {
   const { setCartItems } = useContext(CartContext);
-  const [checkInDate, setCheckInDate] = useState(null);
-  const [checkOutDate, setCheckOutDate] = useState(null);
-  const [checkingDays, setCheckingDays] = useState(0);
-  const [adultGuest, setAdultGuest] = useState('');
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const [checkInDate, setCheckInDate] = useState(today);
+  const [checkOutDate, setCheckOutDate] = useState(tomorrow);
+  const [checkingDays, setCheckingDays] = useState(1);
+  const [adultGuest, setAdultGuest] = useState('1 Adult');
   const [childrenGuest, setChildrenGuest] = useState('');
   const [rooms, setRooms] = useState('');
+  const [roomSelected, setRoomSelected] = useState(false);
+  const [childrenSelected, setChildrenSelected] = useState(false);
 
-  // Calculate the number of checking days based on check-in and check-out dates
+  useEffect(() => {
+    if (rooms) {
+      setRoomSelected(true);
+    } else {
+      setRoomSelected(false);
+    }
+  }, [rooms]);
+
+  useEffect(() => {
+    if (childrenGuest) {
+      setChildrenSelected(true);
+    } else {
+      setChildrenSelected(false);
+    }
+  }, [childrenGuest]);
+
   useEffect(() => {
     if (checkInDate && checkOutDate) {
       const diffTime = Math.abs(new Date(checkOutDate) - new Date(checkInDate));
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       setCheckingDays(diffDays);
     } else {
-      setCheckingDays(0);
+      setCheckingDays(1); // Default to 1 day if dates are not set correctly
     }
   }, [checkInDate, checkOutDate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!roomSelected) {
+      toast.error('Please select a room');
+      return;
+    }
+
+    if (!childrenSelected) {
+      toast.error('Please select number of children');
+      return;
+    }
+
     const bookingDetails = {
       checkInDate,
       checkOutDate,
@@ -37,12 +70,11 @@ const Checking = ({ roomsData }) => {
       rooms,
     };
 
-    // Save bookingDetails to a variable or send to the backend
     console.log("Booking Details:", bookingDetails);
     setCartItems((prev) => prev + 1); // Update cart items count
   };
 
-  const roomNames = roomsData.map(room => room.name); // Extract room names
+  const roomNames = roomsData.map(room => room.name);
 
   return (
     <form className="checking-container" onSubmit={handleSubmit}>
@@ -52,7 +84,7 @@ const Checking = ({ roomsData }) => {
           data-enable-time
           className="custom-date-input"
           value={checkInDate}
-          onChange={(date) => setCheckInDate(date)}
+          onChange={(date) => setCheckInDate(date[0])}
           options={{ dateFormat: 'Y-m-d' }}
           placeholder="Check-In Date"
         />
@@ -63,7 +95,7 @@ const Checking = ({ roomsData }) => {
           data-enable-time
           className="custom-date-input"
           value={checkOutDate}
-          onChange={(date) => setCheckOutDate(date)}
+          onChange={(date) => setCheckOutDate(date[0])}
           options={{ dateFormat: 'Y-m-d' }}
           placeholder="Check-Out Date"
         />
@@ -79,14 +111,24 @@ const Checking = ({ roomsData }) => {
       <CustomSelect
         options={["None", "1 Child", "2 Children", "3 Children", "4 Children"]}
         value={childrenGuest}
-        onChange={setChildrenGuest}
+        onChange={(selectedChildren) => {
+          setChildrenGuest(selectedChildren);
+          if (selectedChildren !== '') {
+            setChildrenSelected(true);
+          } else {
+            setChildrenSelected(false);
+          }
+        }}
         placeholder="Children"
       />
 
       <CustomSelect
-        options={roomNames} // Pass room names here
+        options={roomNames}
         value={rooms}
-        onChange={setRooms}
+        onChange={(selectedRoom) => {
+          setRooms(selectedRoom);
+          setRoomSelected(true);
+        }}
         placeholder="Room"
       />
 

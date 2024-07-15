@@ -9,7 +9,7 @@ import ServicesSection from "../Components/ServicesSection";
 
 const Home = () => {
     return (
-        <div className="home-page">
+        <div className="web-page">
             <HeroCarousel />
             <WelcomeSection />
             <DiscoverSection />
