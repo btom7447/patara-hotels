@@ -1,5 +1,5 @@
 {
-  "homepage": "patara-hotels.vercell.app",
+  "homepage": "https://btom7447.github.io/patara-hotels",
   "name": "patara",
   "version": "0.1.0",
   "private": true,
@@ -31,8 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "vercel build && vercel deploy",
-    "build": "vercel build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
