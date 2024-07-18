@@ -33,6 +33,28 @@ const BookingSection = ({ setCartItems }) => {
                     ) : (
                         <p>No description available.</p>
                     )}
+                     <h5>Special Check-in Instructions</h5>
+                    <p>Guests will receive an email 5 days before arrival with check-in instructions; front desk staff will greet guests on arrival. 
+                        For more details, please contact us using the information on the booking confirmation.
+                    </p>
+                    <ul className="room-features">
+                        <li>
+                            <FontAwesomeIcon icon={faCheck} />
+                            Check-in from 9:00 AM - anytime
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faCheck} />
+                            Early check-in subject to availability
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faCheck} />
+                            Check-out before noon
+                        </li>
+                        <li>
+                            <FontAwesomeIcon icon={faCheck} />
+                            Express check-out
+                        </li>
+                    </ul>
                     <h5>Amenities</h5>
                     <ul className="room-features">
                         {features.length > 0 ? (
@@ -47,10 +69,7 @@ const BookingSection = ({ setCartItems }) => {
                         </li>
                         )}
                     </ul>
-                    <h5>Special Check-in Instructions</h5>
-                    <p>Guests will receive an email 5 days before arrival with check-in instructions; front desk staff will greet guests on arrival. 
-                        For more details, please contact us using the information on the booking confirmation.
-                    </p>
+                   
                     <h5>Pets</h5>
                     <p>{room.pet ? "Pets allowed" : "Pets not allowed"}</p>
                     <h5>Children and extra beds</h5>
@@ -64,7 +83,7 @@ const BookingSection = ({ setCartItems }) => {
                         <h2>${new Intl.NumberFormat('en-US').format(room.price)}</h2>
                         <p>per night</p>
                     </div>
-                    <BookingForm price={room.price} setCartItems={setCartItems} />
+                    <BookingForm price={room.price} roomName={room.name} setCartItems={setCartItems} />
                 </div>
             </div>
         </div>

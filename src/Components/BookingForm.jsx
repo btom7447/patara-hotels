@@ -5,19 +5,19 @@ import 'flatpickr/dist/flatpickr.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from './CartProvider';
-import { toast } from 'react-toastify'; // Import Toastify
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const BookingForm = ({ price }) => {
-  const { setCartItems } = useContext(CartContext);
+const BookingForm = ({ price, roomName }) => {
+  const { cartItems, setCartItems } = useContext(CartContext);
   const today = new Date();
   const [checkInDate, setCheckInDate] = useState(today);
   const [checkOutDate, setCheckOutDate] = useState(null);
-  const [adultGuest, setAdultGuest] = useState('1 Adult'); // Initialize adultGuest to '1'
+  const [adultGuest, setAdultGuest] = useState('1 Adult');
   const [childrenGuest, setChildrenGuest] = useState('');
   const [checkingDays, setCheckingDays] = useState(1);
   const [totalPrice, setTotalPrice] = useState(price);
 
-  // Calculate checkOutDate based on checkInDate and checkingDays
   useEffect(() => {
     if (checkInDate && checkingDays) {
       const newCheckOutDate = new Date(checkInDate);
@@ -26,42 +26,54 @@ const BookingForm = ({ price }) => {
     }
   }, [checkInDate, checkingDays]);
 
-  // Update total price when price or checkingDays change
   useEffect(() => {
     setTotalPrice(price * checkingDays);
   }, [price, checkingDays]);
 
   const handleCheckingDaysChange = (e) => {
     const days = parseInt(e.target.value, 10);
-    setCheckingDays(days > 0 ? days : 1); // Ensure positive value, default to 1 if invalid
+    setCheckingDays(days > 0 ? days : 1);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate childrenGuest selection
     if (!childrenGuest) {
-      toast.error('Please select number of children.');
+      toast.error('Please select the number of children.');
       return;
     }
 
     const bookingDetails = {
-      checkInDate,
-      checkOutDate,
+      checkInDate: checkInDate.toISOString().split('T')[0],
+      checkOutDate: checkOutDate.toISOString().split('T')[0],
       adultGuest,
       childrenGuest,
+      roomName,  // Include the roomName
       checkingDays
     };
 
-    // Save bookingDetails to a variable or send to the backend
-    console.log("Booking Details:", bookingDetails);
-    setCartItems((prev) => prev + 1); // Update cart items count
+    const isDuplicate = cartItems.some(item => 
+      item.checkInDate === bookingDetails.checkInDate &&
+      item.checkOutDate === bookingDetails.checkOutDate &&
+      item.adultGuest === bookingDetails.adultGuest &&
+      item.childrenGuest === bookingDetails.childrenGuest &&
+      item.roomName === bookingDetails.roomName  // Check for duplicate roomName
+    );
+
+    if (isDuplicate) {
+      toast.error('Reservation has already been made.');
+      return;
+    }
+
+    setCartItems(prev => [...prev, bookingDetails]);
+
+    toast.success(`${roomName} has been added to your reservations`);
   };
 
   const handleClearSelection = () => {
     setCheckInDate(today);
     setCheckOutDate(null);
-    setAdultGuest('1'); // Reset adultGuest to '1'
+    setAdultGuest('1 Adult');
     setChildrenGuest('');
     setCheckingDays(1);
   };
@@ -93,7 +105,7 @@ const BookingForm = ({ price }) => {
           data-enable-time
           className="custom-date-input"
           value={checkInDate}
-          onChange={(date) => setCheckInDate(date[0])} // Flatpickr returns an array of dates
+          onChange={(date) => setCheckInDate(date[0])}
           options={{ dateFormat: 'Y-m-d' }}
           placeholder="Check-In Date"
         />
@@ -105,12 +117,15 @@ const BookingForm = ({ price }) => {
           data-enable-time
           className="custom-date-input"
           value={checkOutDate}
-          onChange={(date) => setCheckOutDate(date[0])} // Flatpickr returns an array of dates
+          onChange={(date) => setCheckOutDate(date[0])}
           options={{ dateFormat: 'Y-m-d' }}
           placeholder="Check-Out Date"
         />
       </div>
 
+      <span className="price-per-night">
+        Total booking duration: {checkingDays} {checkingDays === 1 ? 'night' : 'nights'}
+      </span> <br />
       <span className="price-per-night">${new Intl.NumberFormat('en-US').format(totalPrice)}</span>
 
       <div className="booking-buttons">

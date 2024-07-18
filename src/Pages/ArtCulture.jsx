@@ -1,9 +1,10 @@
 import React from "react";
+import BreadCrumb from "../Components/BreadCrumb";
 
 const ArtCulture = () => {
     return (
-        <div>
-            <h1>ArtCulture at Patara hotel</h1>
+        <div className="web-page">
+            <BreadCrumb name="Art & Culture" />
         </div>
     )
 };

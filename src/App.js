@@ -10,7 +10,7 @@ import Rooms from './Pages/Rooms';
 import Services from './Pages/Services';
 import RestaurantBar from './Pages/RestaurantBar';
 import Contact from './Pages/Contact';
-import Cart from './Pages/Cart';
+import Cart from './Pages/Reservations';
 import Booking from './Pages/Booking';
 import Footer from './Components/Footer';
 import { roomsData } from './Components/RoomsData';
@@ -18,7 +18,7 @@ import SpaWellness from './Pages/SpaWellness';
 import FitnessRecreation from './Pages/FitnessRecreation';
 import ArtCulture from './Pages/ArtCulture';
 import CinemaMedia from './Pages/CinemaMedia';
-import BusinessMeetings from './Pages/BusinessMeetings';
+import EventMeetings from './Pages/EventsMeetings';
 import { CartProvider } from './Components/CartProvider';
 import Loader from './Components/Loader';
 import usePageLoader from './Components/usePageLoader';
@@ -39,7 +39,7 @@ const App = () => {
           <Route path="/services/fitness-recreation" element={<FitnessRecreation />} /> 
           <Route path="/services/art-culture" element={<ArtCulture />} /> 
           <Route path="/services/cinema-media" element={<CinemaMedia />} /> 
-          <Route path="/services/business-meetings" element={<BusinessMeetings />} /> 
+          <Route path="/services/event-meetings" element={<EventMeetings />} /> 
           <Route path="/contact" element={<Contact />} /> 
           <Route path="/cart" element={<Cart />} />
           <Route path="/booking" element={<Booking />} />

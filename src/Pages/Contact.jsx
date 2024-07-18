@@ -1,9 +1,12 @@
 import React from "react";
+import BreadCrumb from "../Components/BreadCrumb";
+import ContactSection from "../Components/ContactSection";
 
 const Contact = () => {
     return (
-        <div>
-            <h1>Contact at Patara hotel</h1>
+        <div className="web-page">
+            <BreadCrumb name="Contact Us" />
+            <ContactSection />
         </div>
     )
 };

@@ -19,6 +19,7 @@
   --primary-light: #f8f9fa;
   --primary-dark: #aa845313;
   --secondary-dark: #1b1b1b;
+  --primary-red: #ff0000;
 }
 
 a, h1, h2, h3, h4, h5, h6, p {
@@ -103,7 +104,7 @@ a {
   transition-timing-function: ease;
   transition-delay: 0s;
   transition-property: all;
-  transition: transform color 0.2s;
+  transition: color 0.1s;
 }
 .active-scroll {
   color: var(--black);
@@ -118,9 +119,10 @@ a {
   transition: transform .5s, -webkit-transform .5s;
   -webkit-transform: translateY(100px);
   transform: translateY(100px);
-  transition: transform color 0.2s;
+  transition: color 0.1s;
   border: none;
   margin-top: 0;
+  transition: filter 0.3s ease;
   -webkit-box-shadow: 0px 5px 15px rgb(15 36 84 / 5%);
   box-shadow: 0px 5px 15px rgb(15 36 84 / 5%);
 }
@@ -262,6 +264,7 @@ a {
   margin-bottom: 15px;
   line-height: 1.2em;
   margin-top: 30px;
+  text-align: center;
 }
 .bread-crumb-section .bread-crumb-texts h5 {
   font-family: 'Outfit', sans-serif;
@@ -518,17 +521,25 @@ footer .footer-bottom span {
   bottom: 100%;
   left: 0;
   width: 100%;
+  max-height: 300px;
   border-top: none;
   background: var(--white);
-  z-index: 1;
+  z-index: 100;
+  overflow-y: scroll;
+}
+.checking-container .custom-select-options::-webkit-scrollbar {
+  width: 0;
+  display: none;
 }
 .checking-container .custom-select-option {
   width: 100%;
   padding: 20px;
   cursor: pointer;
+  z-index: 100;
 }
 .checking-container .custom-select-option:hover {
   background: var(--secondary-gold);
+  color: var(--white);
 }
 .checking-container .date-input-container {
   position: relative;
@@ -1515,12 +1526,20 @@ footer .footer-bottom span {
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 30px;
 }
-.services-section .service-item {
+.services-display-grid {
+  width: 100%;
+  height: fit-content;
+  padding: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 30px;
+}
+.services-display-grid  .service-item {
   max-height: 35rem;
   position: relative;
   overflow: hidden;
 }
-.services-section .service-item::before {
+.services-display-grid  .service-item::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1530,7 +1549,7 @@ footer .footer-bottom span {
   background: rgba(0, 0, 0, 0.6); 
   z-index: 1; 
 }
-.services-section .service-item h5 {
+.services-display-grid  .service-item h5 {
   position: absolute;
   bottom: 50px;
   left: 20px;
@@ -1541,14 +1560,14 @@ footer .footer-bottom span {
   color: var(--white);
   z-index: 2;
 }
-.services-section .service-item .service-image {
+.services-display-grid  .service-item .service-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   transition: transform 0.3s ease;
 }
-.services-section .service-button {
+.services-display-grid  .service-button {
   z-index: 2;
   position: absolute;
   bottom: 100px;
@@ -1567,15 +1586,15 @@ footer .footer-bottom span {
   color 0.3s ease, bottom 0.3s ease, 
   opacity 0.3s ease;
 }
-.services-section .service-button:hover {
+.services-display-grid  .service-button:hover {
   background-color: var(--white);
   color: var(--black);
 }
-.services-section .service-item:hover .service-button {
+.services-display-grid  .service-item:hover .service-button {
   bottom: 50px;
   opacity: 1;
 }
-.services-section .service-item:hover .service-image {
+.services-display-grid  .service-item:hover .service-image {
   transform: scale(1.1);
 }
 
@@ -1942,7 +1961,7 @@ footer .footer-bottom span {
   background-position: bottom center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  padding: 100px;
+  padding: 200px 100px;
   display: flex;
   gap: 30px;
   flex-direction: column;
@@ -1959,6 +1978,401 @@ footer .footer-bottom span {
   height: 100%;
   background: rgba(0, 0, 0, 0.3); 
 }
+
+/* ROOMS SECTION */
+.rooms-section {
+  width: 100%;
+  height: fit-content;
+  padding: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 30px;
+  background: var(--primary-dark);
+}
+.rooms-section .room-box {
+  width: 100%;
+  height: 35rem;
+  position: relative;
+}
+.rooms-section .room-box .room-image img {
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  object-position: bottom;
+}
+.rooms-section .room-caption {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  color: var(--black);
+  width: 80%;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.rooms-section .room-caption .room-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.rooms-section .room-caption .room-description h2 {
+  font-size: 27px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.rooms-section .room-caption .room-description .rooms-specs {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.rooms-section .room-caption .room-description .rooms-specs span {
+  font-size: 12px;
+  vertical-align: super;
+}
+.rooms-section .room-caption button {
+  min-width: 150px;
+  padding: 20px;
+  font-size: 15px;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--secondary-gold);
+  border: solid 1px var(--secondary-gold);
+}
+.rooms-section .room-caption button:hover {
+  min-width: 150px;
+  color: var(--black);
+  background-color: var(--primary-dark);
+}
+.rooms-section .room-caption .room-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.rooms-section .room-caption .room-price h3 {
+  font-size: 27px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--secondary-gold);
+  margin-bottom: 0;
+}
+.rooms-section .room-caption .room-price p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.rooms-section .load-more {
+  grid-column: span 2; 
+  margin: 20px auto;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+  border: none;
+  background-color: var(--white);
+}
+.rooms-section .load-more:hover {
+  background-color: var(--secondary-gold);
+  color: var(--white);
+}
+
+/* RESERVATION SECTION */
+.reservation-section {
+  width: 100%;
+  height: fit-content;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: var(--primary-dark);
+}
+.reservation-section .no-reservation {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.reservation-section .no-reservation p {
+  font-size: 27px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  color: var(--black);
+  position: relative;
+  line-height: 1.2em;
+  text-align: center;
+}
+.reservation-section .no-reservation button {
+  min-width: 150px;
+  padding: 20px;
+  font-size: 15px;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--secondary-gold);
+  border: solid 1px var(--secondary-gold);
+}
+.reservation-section .no-reservation button:hover {
+  min-width: 150px;
+  color: var(--black);
+  background-color: var(--primary-dark);
+}
+.reservation-section form {
+  width: 100%;
+}
+.reservation-section form .reservation-table {
+  width: 100%;
+  border: 2px solid var(--secondary-gold);
+  background-color: var(--white);
+  overflow-x: auto;
+}
+.reservation-section .reservation-table th {
+  padding: 20px;
+  text-align: left;
+  border-bottom: solid 1px var(--secondary-gold);
+  font-size: 24px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  line-height: 1.2em;
+  color: var(--secondary-gold);
+}
+.reservation-section .reservation-table td {
+  padding: 20px;
+  text-align: left;
+  vertical-align: middle;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.reservation-section .reservation-actions {
+  width: fit-content;
+  margin-top: 50px;
+  padding: 50px;
+  border: solid 2px var(--secondary-gold);
+  background-color: var(--white);
+}
+.reservation-section .reservation-actions p {
+  margin-bottom: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.reservation-section .reservation-actions span {
+  font-weight: 500;
+}
+.reservation-section .reservation-actions button {
+  margin-right: 30px;
+  min-width: 150px;
+  padding: 20px;
+  font-size: 15px;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  color: var(--white);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  border: none;
+}
+.reservation-section .reservation-actions .delete-reservation {
+  background-color: #ff0000;
+}
+.reservation-section .reservation-actions .confirm-reservation {
+  background-color: var(--secondary-gold);
+}
+.reservation-section .reservation-actions button:hover {
+  opacity: 0.7;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--primary-dark);
+}
+.contact-section .contact-section-top {
+  width: 100%;
+  height: fit-content;
+  padding: 100px 100px 20px 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.contact-section .contact-section-top h2 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.contact-section .contact-section-top p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+
+/* GET IN TOUCH */
+.get-in-touch-section {
+  width: 100%;
+  height: fit-content;
+  padding: 20px 100px 100px 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 50px;
+}
+.get-in-touch-section .contact-boxes {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.get-in-touch-section .contact-box {
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--white);
+}
+.get-in-touch-section .contact-box svg {
+  font-size: 4rem;
+  color: var(--secondary-gold);
+}
+.get-in-touch-section .contacts h5 {
+  font-size: 20px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.get-in-touch-section .contacts p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+
+/* CONTACT FORM */
+.contact-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px 20px;
+}
+.contact-form h5 {
+  width: 100%;
+  font-size: 20px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.contact-form .form-group {
+  width: 45%;
+}
+.contact-form .form-group input {
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px var(--secondary-gold);
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+/* .contact-form .form-group input::placeholder {
+  color: var(--primary-red);
+} */
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+  width: 92%;
+  padding: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid var(--secondary-gold);
+  background-color: transparent;
+}
+.contact-form input, 
+.contact-form textarea {
+  outline: none;
+}
+.contact-form .submit-button {
+  padding: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--white);
+  background-color: var(--secondary-gold);
+  border: none;
+  cursor: pointer; 
+  transition: background-color 0.3s ease;
+}
+.contact-form .submit-button:hover {
+  background-color: transparent;
+  color: var(--secondary-gold);
+}
+
 
 /* * {
   outline: red solid 1px;

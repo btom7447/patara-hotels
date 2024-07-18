@@ -1,12 +1,12 @@
 import React from "react";
 import BreadCrumb from "../Components/BreadCrumb";
 
-const SpaWellness = () => {
+const EventsMeetings = () => {
     return (
         <div className="web-page">
-            <BreadCrumb name="Spa & Wellness" />
+            <BreadCrumb name="Events & Meetings" />
         </div>
     )
 };
 
-export default SpaWellness;
+export default EventsMeetings;

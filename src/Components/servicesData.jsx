@@ -25,8 +25,8 @@ export const servicesData = [
       image: "https://img.freepik.com/free-photo/view-3d-cinema-theatre-room_23-2150866157.jpg?ga=GA1.1.748385859.1720986736&semt=ais_user",
     },
     {
-      name: "Business & Meetings",
-      link: "/services/business-meetings",
+      name: "Event & Meetings",
+      link: "/services/event-meetings",
       image: "https://webredox.net/demo/wp/patara/wp-content/uploads/2023/10/5.jpg",
     },
 ];  

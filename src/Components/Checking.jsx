@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Checking = ({ roomsData }) => {
-  const { setCartItems } = useContext(CartContext);
+  const { cartItems, setCartItems } = useContext(CartContext);
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -45,7 +45,7 @@ const Checking = ({ roomsData }) => {
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       setCheckingDays(diffDays);
     } else {
-      setCheckingDays(1); // Default to 1 day if dates are not set correctly
+      setCheckingDays(1);
     }
   }, [checkInDate, checkOutDate]);
 
@@ -62,16 +62,30 @@ const Checking = ({ roomsData }) => {
     }
 
     const bookingDetails = {
-      checkInDate,
-      checkOutDate,
+      checkInDate: checkInDate.toISOString().split('T')[0],
+      checkOutDate: checkOutDate.toISOString().split('T')[0],
       checkingDays,
       adultGuest,
       childrenGuest,
-      rooms,
+      rooms
     };
 
-    console.log("Booking Details:", bookingDetails);
-    setCartItems((prev) => prev + 1); // Update cart items count
+    const isDuplicate = cartItems.some(item => 
+      item.checkInDate === bookingDetails.checkInDate &&
+      item.checkOutDate === bookingDetails.checkOutDate &&
+      item.adultGuest === bookingDetails.adultGuest &&
+      item.childrenGuest === bookingDetails.childrenGuest &&
+      item.rooms === bookingDetails.rooms
+    );
+
+    if (isDuplicate) {
+      toast.error('Reservation has already been made.');
+      return;
+    }
+
+    setCartItems(prev => [...prev, bookingDetails]);
+
+    toast.success(`${rooms} has been added to your reservations`);
   };
 
   const roomNames = roomsData.map(room => room.name);

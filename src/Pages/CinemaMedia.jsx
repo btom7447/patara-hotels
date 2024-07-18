@@ -1,9 +1,10 @@
 import React from "react";
+import BreadCrumb from "../Components/BreadCrumb";
 
 const CinemaMedia = () => {
     return (
-        <div>
-            <h1>CinemaMedia at Patara hotel</h1>
+        <div className="web-page">
+            <BreadCrumb name="Cinema & Media" />
         </div>
     )
 };

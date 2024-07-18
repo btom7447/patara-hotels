@@ -1,9 +1,10 @@
 import React from "react";
+import BreadCrumb from "../Components/BreadCrumb";
 
 const FitnessRecreation = () => {
     return (
-        <div>
-            <h1>FitnessRecreation at Patara hotel</h1>
+        <div className="web-page">
+            <BreadCrumb name="Fitness & Recreation" />
         </div>
     )
 };

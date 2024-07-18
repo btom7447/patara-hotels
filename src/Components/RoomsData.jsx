@@ -148,5 +148,50 @@ export const roomsData = [
         "Sauna", 
       ], 
       pets: true,
+    },
+    {
+      name: "Family Room",
+      image: "https://webredox.net/demo/wp/patara/wp-content/uploads/2023/10/19.jpg",
+      dimension: "70",
+      adults: "2",
+      children: "4",
+      price: "1200",
+      description: [
+        "Our Family Room is designed with comfort and convenience in mind, featuring a spacious living area, a large bathroom, and a private balcony with stunning views. This room is perfect for families or groups of friends.", 
+        "Enjoy our complimentary breakfast buffet, personalized butler service, and access to our fitness center and spa. Our Family Room is the ideal choice for a family vacation or a getaway with friends."
+      ],
+      features: [
+        "Plush beds", 
+        "Flat-screen TV", 
+        "Modern bathroom", 
+        "Complimentary Wi-Fi", 
+        "Complimentary breakfast buffet", 
+        "Personalized butler service", 
+        "Access to fitness center and spa"
+      ],
+      pets: true
+    },
+    {
+      name: "Premier Suite",
+      image: "https://webredox.net/demo/wp/patara/wp-content/uploads/2023/10/12.jpg",
+      dimension: "120",
+      adults: "2",
+      children: "1",
+      price: "2000",
+      description: [
+        "Our Premier Suite is the epitome of luxury, featuring a spacious living area, a marble-clad bathroom, and a private balcony with breathtaking views. This suite is perfect for special occasions or business trips.", 
+        "Enjoy personalized butler service, complimentary breakfast buffet, and access to our executive lounge. Our Premier Suite is the ultimate in luxury and sophistication."],
+      features: [
+        "Plush bed", 
+        "Flat-screen TV", 
+        "Modern bathroom", 
+        "Complimentary Wi-Fi", 
+        "Complimentary breakfast buffet", 
+        "Personalized butler service", 
+        "Access to executive lounge", 
+        "Private gym", 
+        "Sauna"
+      ],
+      pets: false
     }
 ]; 

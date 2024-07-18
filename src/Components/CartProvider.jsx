@@ -5,14 +5,12 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
     const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
-    return storedCartItems !== null ? storedCartItems : 0;
+    return Array.isArray(storedCartItems) ? storedCartItems : [];
   });
 
-  // Update localStorage whenever cartItems change
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
-//   localStorage.clear();
 
   return (
     <CartContext.Provider value={{ cartItems, setCartItems }}>

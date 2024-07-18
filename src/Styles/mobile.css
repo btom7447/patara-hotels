@@ -11,6 +11,7 @@
         --primary-light: #f8f9fa;
         --primary-dark: #aa845313;
         --secondary-dark: #1b1b1b;
+        --primary-red: #ff0000;
 
     }
     .navbar {
@@ -52,7 +53,7 @@
     }
     .nav-links .cart-badge {
         top: 5px;
-        left: 45px;
+        left: 40px;
         right: auto;
     }
 
@@ -66,7 +67,7 @@
         z-index: 2;
     }
     .bread-crumb-section .bread-crumb-texts h1 {
-        font-size: 72px;
+        font-size: 42px;
         margin-top: 20px;
     }
     .bread-crumb-section .bread-crumb-texts h5 {
@@ -401,14 +402,16 @@
         gap: 20px;
     }
     .services-section .services-display-grid {
-        width: 100%;
-        height: fit-content;
-        padding: 30px;
-        display: grid;
+        padding: 20px;
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    .services-section .service-item {
+    .services-display-grid {
+        padding: 50px 20px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .services-display-grid .service-item {
         max-height: 30rem;
     }
 
@@ -648,6 +651,163 @@
     .checking-section {
         padding: 100px 20px;
     }
+
+    /* ROOMS SECTION */
+    .rooms-section {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 100px;
+      }
+      .rooms-section .room-box {
+        width: 100%;
+        height: 30rem;
+        position: relative;
+        overflow: hidden;
+        transform: translateY(50px);
+      }
+    .rooms-section .room-box .room-image img {
+        width: 100%;
+        height: 20rem;
+    }
+    .rooms-section .room-caption {
+        width: 90%;
+        padding: 20px;
+        gap: 10px 20px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .rooms-section .room-caption .room-description {
+        width: 100%;
+    }
+    .rooms-section .room-caption .room-description h2 {
+        margin-bottom: 5px;
+    }
+    .rooms-section .room-caption button {
+        min-width: 100px;
+        padding: 20px;
+    }
+    .rooms-section .room-caption .room-price {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .rooms-section .load-more {
+        grid-column: 1; 
+        margin: 20px auto;
+        margin-top: 50px;
+    }
+
+    /* RESERVATION SECTION */
+    .reservation-section {
+        width: 100%;
+        padding: 100px 20px;
+    }
+    .reservation-section .no-reservation p {
+        font-size: 27px;
+        font-family: 'Libre Caslon Display', serif;
+        font-weight: 400;
+        color: var(--black);
+        position: relative;
+        line-height: 1.2em;
+        text-align: center;
+    }
+    .reservation-section .no-reservation button {
+        min-width: 150px;
+        padding: 20px;
+        font-size: 15px;
+        font-family: 'Outfit', sans-serif;
+        cursor: pointer;
+        color: var(--white);
+        background-color: var(--secondary-gold);
+        border: solid 1px var(--secondary-gold);
+    }
+    .reservation-section .no-reservation button:hover {
+        min-width: 150px;
+        color: var(--black);
+        background-color: var(--primary-dark);
+    }
+    .reservation-section .hide-on-mobile {
+        display: none;
+    }
+    .reservation-section .reservation-table th {
+        padding: 10px;
+        text-align: center;
+        font-size: 18px;
+    }
+    .reservation-section .reservation-table td {
+        padding: 10px;
+        text-align: left;
+    }
+    .reservation-section .reservation-actions {
+        width: fit-content;
+        margin-top: 50px;
+        padding: 20px;
+    }
+    .reservation-section .reservation-actions button {
+        margin: 10px auto;
+        min-width: 100px;
+        padding: 20px;
+        font-size: 15px;
+        font-family: 'Outfit', sans-serif;
+        cursor: pointer;
+        color: var(--white);
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        border: none;
+    }
+    .reservation-section .reservation-actions .delete-reservation {
+        background-color: #ff0000;
+    }
+    .reservation-section .reservation-actions .confirm-reservation {
+        background-color: var(--secondary-gold);
+    }
+    .reservation-section .reservation-actions button:hover {
+        opacity: 0.7;
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+        padding-bottom: 50px;
+    }
+    .contact-section .contact-section-top {
+        padding: 20px;
+        flex-direction: column;
+    }
+    /* GET IN TOUCH */
+    .get-in-touch-section {
+        padding: 20px;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .get-in-touch-section .contact-boxes {
+        width: 100%;
+    }
+    .get-in-touch-section .contact-box {
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+    .get-in-touch-section .contact-box svg {
+        font-size: 2.5rem;
+    }
+    
+    /* CONTACT FORM */
+    .contact-form h5 {
+        margin-top: 30px;
+    }
+    .contact-form .form-group {
+        width: 100%;
+    }
+    .contact-form textarea {
+        width: 100%;
+    }
+    .contact-form .submit-button {
+        width: 100%;
+    }
+                
 
 
     /* * {

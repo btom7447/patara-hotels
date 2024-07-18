@@ -1,9 +1,15 @@
 import React from "react";
+import BreadCrumb from "../Components/BreadCrumb";
+import ServicesDisplay from "../Components/ServicesDisplay";
+import { servicesData } from "../Components/servicesData";
+import CheckingSection from "../Components/CheckingSection";
 
 const Services = () => {
     return (
-        <div>
-            <h1>Services at Patara Hotel</h1>
+        <div className="web-page">
+            <BreadCrumb name="Our Services" />
+            <ServicesDisplay servicesData={servicesData} />
+            <CheckingSection />
         </div>
     )
 };

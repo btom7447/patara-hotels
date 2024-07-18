@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from './CartProvider';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrollClass, setScrollClass] = useState('nav-bar'); // Initial class for navbar
-  const [isMobile, setIsMobile] = useState(false); // Detect mobile screen
+  const [scrollClass, setScrollClass] = useState('nav-bar');
+  const [isMobile, setIsMobile] = useState(false);
 
   const { cartItems } = useContext(CartContext);
 
@@ -40,7 +40,7 @@ const Navbar = () => {
       }
     };
 
-    checkIfMobile(); // Initial check
+    checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
@@ -86,8 +86,8 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink to="/cart" className="nav-links" activeclassname="active" onClick={() => setIsOpen(false)}>
-              <FontAwesomeIcon icon={faShoppingCart} />
-              {cartItems >= 0 && <span className="cart-badge">{cartItems}</span>}
+              <FontAwesomeIcon icon={faCalendarCheck} />
+              {cartItems.length > 0 && <span className="cart-badge">{cartItems.length}</span>}
             </NavLink>
           </li>
         </ul>
