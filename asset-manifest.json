@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/patara-hotels/static/css/main.80422914.css",
-    "main.js": "/patara-hotels/static/js/main.0fde3db7.js",
+    "main.css": "/patara-hotels/static/css/main.4b55bd48.css",
+    "main.js": "/patara-hotels/static/js/main.112dd05d.js",
     "static/js/453.fa051f60.chunk.js": "/patara-hotels/static/js/453.fa051f60.chunk.js",
     "index.html": "/patara-hotels/index.html",
-    "main.80422914.css.map": "/patara-hotels/static/css/main.80422914.css.map",
-    "main.0fde3db7.js.map": "/patara-hotels/static/js/main.0fde3db7.js.map",
+    "main.4b55bd48.css.map": "/patara-hotels/static/css/main.4b55bd48.css.map",
+    "main.112dd05d.js.map": "/patara-hotels/static/js/main.112dd05d.js.map",
     "453.fa051f60.chunk.js.map": "/patara-hotels/static/js/453.fa051f60.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80422914.css",
-    "static/js/main.0fde3db7.js"
+    "static/css/main.4b55bd48.css",
+    "static/js/main.112dd05d.js"
   ]
 }
