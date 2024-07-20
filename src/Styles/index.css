@@ -95,7 +95,7 @@ a {
   padding: 20px 10px 10px 10px;
   background: transparent;
   color: var(--white);
-  z-index: 99;
+  z-index: 2000;
   height: 100px;
   border: none;
   transition: 1s;
@@ -2372,8 +2372,581 @@ footer .footer-bottom span {
   background-color: transparent;
   color: var(--secondary-gold);
 }
+.map-section .leaflet-popup-content-wrapper {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.map-section .leaflet-popup-content {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  color: var(--black);
+  padding: 20px;
+}
+.map-section .leaflet-popup-tip {
+  background: var(--white); 
+}
+
+/* RESTAURANT AND BAR */
+.restaurant-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--primary-dark);
+}
+.restaurant-section .restaurant-section-top {
+  width: 100%;
+  height: fit-content;
+  padding: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.restaurant-section .restaurant-section-top h2 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.restaurant-section .restaurant-section-top p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.restaurant-section .restaurant-section-top h6 {
+  font-size: 24px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--secondary-gold);
+  margin-top: 20px;
+}
+.restaurant-section .restaurant-section-text ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+.restaurant-section .restaurant-section-text ul li {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.restaurant-section .restaurant-section-text .fa-li {
+  width: 2rem;
+  display: inline-block;
+  text-align: center;
+  margin-left: 20px;
+  font-size: 2rem;
+  color: var(--secondary-gold);
+}
+
+/* MENU SECTION */
+.menu-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--black);
+}
+.menu-section .menu-section-top {
+  width: 100%;
+  height: fit-content;
+  padding: 100px 100px 20px 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.menu-section .menu-section-text {
+  width: calc(100% - 300px);
+}
+.menu-section .menu-section-top h2 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--white);
+}
+.menu-section .menu-section-top p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--white );
+}
+.menu-section .section-caption {
+  width: 200px;
+  border-bottom: solid 1px var(--white);
+}
+.menu-section .section-caption .bullet {
+  background-color: var(--white);
+}
+.menu-section .section-caption h5 {
+  color: var(--white);
+}
+/* ACCORDION SECTION */
+.accordion-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.accordion-section > div {
+  width: 100%;
+}
+.accordion-section .accordion-header {
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.accordion-section .accordion-header h3 {
+  font-size: 24px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  line-height: 1.2em;
+  color: var(--white);
+  padding-left: 10px;
+}
+.accordion-section .accordion-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 100%;
+  color: var(--white);
+  background-color: var(--secondary-gold);
+  font-size: 1.2rem;
+}
+.accordion-section .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.accordion-section .accordion-content.active {
+  max-height: 1000px;
+}
+.accordion-section .accordion-content ul {
+  list-style-type: none;
+  padding: 20px;
+  max-width: 600px;
+  margin-left: 50px;
+}
+.accordion-section .accordion-content ul li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--white );
+  padding: 10px;
+}
+
+/* SERVICES VIDEO  */
+.services-video {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.services-video video {
+  width: 100%;
+  height: 90vh;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+.services-video .services-video-caption {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 20px;
+}
+.services-video .services-video-caption h1 {
+  font-size: 100px;
+  text-align: center;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1em;
+}
+
+/* SPA AND WELLNESS */
+.spa-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--primary-dark);
+}
+.spa-section .spa-section-top {
+  width: 100%;
+  height: fit-content;
+  padding: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.spa-section .spa-section-top h2 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.spa-section .spa-section-top p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.spa-section .spa-section-album {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+.spa-section .spa-section-album img {
+  width: 45%;
+  height: auto;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* SPA ETIQUETTE */
+.spa-etiquette-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--primary-dark);
+}
+.spa-etiquette-section .spa-etiquette-section-top {
+  width: 100%;
+  height: fit-content;
+  padding: 100px 100px 20px 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.spa-etiquette-section .spa-etiquette-section-top h2 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.spa-etiquette-section .spa-etiquette-section-top p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+/* ACCORDION SECTION */
+.spa-etiquette-section .accordion-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 100px;
+}
+.spa-etiquette-section .accordion-section > div {
+  width: 100%;
+}
+.spa-etiquette-section .accordion-section .accordion-header {
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.spa-etiquette-section .accordion-section .accordion-header h3 {
+  font-size: 24px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  line-height: 1.2em;
+  color: var(--black);
+  padding-left: 10px;
+}
+.spa-etiquette-section .accordion-section .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.spa-etiquette-section .accordion-section .accordion-content.active {
+  max-height: 1000px;
+}
+.spa-etiquette-section .accordion-section .accordion-content p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+  padding: 10px;
+  margin-left: 50px;
+  max-width: 800px;
+}
+
+/* FITNESS AND RECREATION */
+.fitness-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--primary-dark);
+}
+.fitness-section .fitness-section-top {
+  width: 100%;
+  height: fit-content;
+  padding: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.fitness-section .fitness-section-top h2 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--black);
+}
+.fitness-section .fitness-section-top p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.fitness-section .fitness-section-top h6 {
+  font-size: 24px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--secondary-gold);
+  margin-top: 20px;
+}
+.fitness-section .fitness-section-text ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+.fitness-section .fitness-section-text ul li {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--black);
+}
+.fitness-section .fitness-section-text .fa-li {
+  width: 2rem;
+  display: inline-block;
+  text-align: center;
+  margin-left: 20px;
+  font-size: 2rem;
+  color: var(--secondary-gold);
+}
+
+/* FITNESS INFORMATION SECTION */
+.fitness-information-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--black);
+}
+.fitness-information-section .fitness-information-section-top {
+  width: 100%;
+  height: fit-content;
+  padding: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.fitness-information-section .fitness-information-section-text {
+  width: calc(100% - 300px);
+}
+.fitness-information-section .fitness-information-section-top h2 {
+  font-size: 45px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 15px;
+  line-height: 1.2em;
+  color: var(--white);
+}
+.fitness-information-section .fitness-information-section-top p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--white );
+}
+.fitness-information-section .section-caption {
+  width: 200px;
+  border-bottom: solid 1px var(--white);
+}
+.fitness-information-section .section-caption .bullet {
+  background-color: var(--white);
+}
+.fitness-information-section .section-caption h5 {
+  color: var(--white);
+}
+/* ACCORDION SECTION */
+.fitness-information-section .accordion-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.fitness-information-section .accordion-section > div {
+  width: 100%;
+}
+.fitness-information-section .accordion-section .accordion-header {
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.fitness-information-section .accordion-section .accordion-header h3 {
+  font-size: 24px;
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400;
+  position: relative;
+  line-height: 1.2em;
+  color: var(--white);
+  padding-left: 10px;
+}
+.fitness-information-section .accordion-section .accordion-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 100%;
+  color: var(--white);
+  background-color: var(--secondary-gold);
+  font-size: 1.2rem;
+}
+.fitness-information-section .accordion-section .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.fitness-information-section .accordion-section .accordion-content.active {
+  max-height: 1000px;
+}
+.fitness-information-section .accordion-section .accordion-content ul {
+  list-style-type: none;
+  padding: 20px;
+  max-width: 100%;
+  margin-left: 50px;
+}
+.fitness-information-section .accordion-section .accordion-content ul li {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.75em;
+  color: var(--white );
+  padding: 10px;
+}
 
 
 /* * {
-  outline: red solid 1px;
+  outline: red solid 1px; 
 }  */

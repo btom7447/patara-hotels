@@ -16,17 +16,16 @@ import Footer from './Components/Footer';
 import { roomsData } from './Components/RoomsData';
 import SpaWellness from './Pages/SpaWellness';
 import FitnessRecreation from './Pages/FitnessRecreation';
-import ArtCulture from './Pages/ArtCulture';
-import CinemaMedia from './Pages/CinemaMedia';
-import EventMeetings from './Pages/EventsMeetings';
 import { CartProvider } from './Components/CartProvider';
 import Loader from './Components/Loader';
 import usePageLoader from './Components/usePageLoader';
+import ScrollToTop from './Components/ScrollToTop';
 
 const App = () => {
   return (
     <CartProvider>
-      <Router>
+      <Router  basename="/Patara-Hotels">
+        <ScrollToTop />
         <LoaderWrapper />
         <Navbar />
         <Routes>  
@@ -37,9 +36,6 @@ const App = () => {
           <Route path="/services/restaurant-bar" element={<RestaurantBar />} /> 
           <Route path="/services/spa-wellness" element={<SpaWellness />} /> 
           <Route path="/services/fitness-recreation" element={<FitnessRecreation />} /> 
-          <Route path="/services/art-culture" element={<ArtCulture />} /> 
-          <Route path="/services/cinema-media" element={<CinemaMedia />} /> 
-          <Route path="/services/event-meetings" element={<EventMeetings />} /> 
           <Route path="/contact" element={<Contact />} /> 
           <Route path="/cart" element={<Cart />} />
           <Route path="/booking" element={<Booking />} />
